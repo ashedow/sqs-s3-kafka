@@ -63,11 +63,4 @@ func asyncPublishMessage(message []byte, producer AsyncProducer) (partition int3
 	producer.Send("topic_test", []byte(message))
 	sendCount++
 	fmt.Printf("send message count: %v,%v\n", sendCount, time.Now())
-
-	// partition, offset, err = producer.SendMessage(&kafka.ProducerMessage{
-	// 	Topic: kafkaTopic,
-	// 	Value: kafka.ByteEncoder(message),
-	// })
-	// return
-	// producer.AsyncProducer.Input() <- message
 }
