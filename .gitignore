@@ -1,0 +1,4 @@
+.vscode/*
+.idea/*
+sqs-to-kafka
+sqs-to-kafka-*

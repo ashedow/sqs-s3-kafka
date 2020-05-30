@@ -1,0 +1,13 @@
+version: '2.1'
+services:
+  sqs-to-kafka:
+    image: producer:${IMAGE_TAG:-latest}
+    command: [ /bin/sqs-s3-kafka ]
+    environment:
+    AWS_REGION: "{{ aws_region }}"
+    AWS_ACCESS_KEY_ID: "{{ secrets_aws_access_key | default('') }}"
+    AWS_SECRET_ACCESS_KEY: "{{ secrets_aws_secret_key | default('') }}"
+    SQS_QUEUE_NAME: "{{ secrets_aws_queue_name | default('') }}"
+    KAFKA_BROKERS: "{{ kafka_brokers }}"
+    KAFKA_TOPIC: "{{ kafka_topic }}"
+    S3_BUCKET: "{{ s3_bucket }}"
